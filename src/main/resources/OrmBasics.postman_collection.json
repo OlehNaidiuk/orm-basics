@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "1c06bc4b-c0f7-45f5-97a3-b386c4905600",
+		"name": "OrmBasics",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddStudentToGroup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"studentName\": \"Brianna\",\n    \"studentSurname\": \"Adams\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/groups/3/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"3",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteStudentFromGroup",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/groups/1/students/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"1",
+						"students",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteStudentFromGroupByWrongId",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/groups/1/students/66",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"1",
+						"students",
+						"66"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddGroupToTeacher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"groupName\": \"Art\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/teachers/3/groups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"teachers",
+						"3",
+						"groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteGroupFromTeacher",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/teachers/3/groups/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"teachers",
+						"3",
+						"groups",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteGroupFromTeacherByWrongId",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/teachers/3/groups/17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"teachers",
+						"3",
+						"groups",
+						"17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTeacherStudents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/teachers/1/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"teachers",
+						"1",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTeacherStudentsByWrongId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/teachers/11/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"teachers",
+						"11",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetNumberOfTeacherGroups",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/teachers/1/groups-number",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"teachers",
+						"1",
+						"groups-number"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
