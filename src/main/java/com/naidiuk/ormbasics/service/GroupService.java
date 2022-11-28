@@ -1,7 +1,7 @@
 package com.naidiuk.ormbasics.service;
 
-import com.naidiuk.ormbasics.dto.StudentDto;
 import com.naidiuk.ormbasics.dto.GroupStudentsDto;
+import com.naidiuk.ormbasics.dto.StudentDto;
 
 public interface GroupService {
     GroupStudentsDto addStudentToGroup(Long groupId, StudentDto studentDto);

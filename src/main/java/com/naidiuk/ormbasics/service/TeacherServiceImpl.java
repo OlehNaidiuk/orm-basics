@@ -1,8 +1,8 @@
 package com.naidiuk.ormbasics.service;
 
 import com.naidiuk.ormbasics.dto.GroupDto;
-import com.naidiuk.ormbasics.dto.TeacherStudentsDto;
 import com.naidiuk.ormbasics.dto.TeacherGroupsDto;
+import com.naidiuk.ormbasics.dto.TeacherStudentsDto;
 import com.naidiuk.ormbasics.entity.Group;
 import com.naidiuk.ormbasics.entity.Student;
 import com.naidiuk.ormbasics.entity.Teacher;
