@@ -36,12 +36,11 @@ class GroupServiceTest {
     void whenAddStudentToGroup_thenReturnGroupWithAddedStudent() {
         //prepare
         Group group = getGroup();
-        Long groupId = group.getGroupId();
         Student student = getStudent();
+        Long groupId = group.getGroupId();
         StudentDto expectedStudentDto = StudentMapper.transformToDto(student);
 
-        Mockito.doReturn(Optional.of(group))
-                .when(groupRepositoryMock).findByIdWithStudents(groupId);
+        Mockito.doReturn(Optional.of(group)).when(groupRepositoryMock).findByIdWithStudents(groupId);
         Mockito.doReturn(group).when(groupRepositoryMock).save(group);
 
         //when
@@ -70,25 +69,21 @@ class GroupServiceTest {
     @Test
     void whenDeleteStudentFromGroup_thenReturnGroupWithoutDeletedStudent() {
         //prepare
-        Group groupWithStudent = getGroup();
-        Long groupId = groupWithStudent.getGroupId();
-        Group groupWithoutStudent = getGroup();
+        Group group = getGroup();
         Student student = getStudent();
+        Long groupId = group.getGroupId();
         Long studentId = student.getStudentId();
-        groupWithStudent.getStudents().add(student);
+        group.getStudents().add(student);
 
-        Mockito.doReturn(Optional.of(groupWithStudent))
-                .when(groupRepositoryMock).findByIdWithStudents(groupId);
-        Mockito.doReturn(groupWithoutStudent).when(groupRepositoryMock).save(groupWithStudent);
-
+        Mockito.doReturn(Optional.of(group)).when(groupRepositoryMock).findByIdWithStudents(groupId);
+        Mockito.doReturn(group).when(groupRepositoryMock).save(group);
 
         //when
-        GroupStudentsDto groupStudentsDto =
-                groupService.deleteStudentFromGroup(groupId, studentId);
+        GroupStudentsDto groupStudentsDto = groupService.deleteStudentFromGroup(groupId, studentId);
 
         //then
         assertEquals(0, groupStudentsDto.getStudents().size());
-        Mockito.verify(groupRepositoryMock).save(groupWithStudent);
+        Mockito.verify(groupRepositoryMock).save(group);
     }
 
     @Test

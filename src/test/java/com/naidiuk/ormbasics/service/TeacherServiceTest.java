@@ -40,12 +40,11 @@ class TeacherServiceTest {
     void whenAddGroupToTeacher_thenReturnTeacherWithAddedGroup() {
         //prepare
         Teacher teacher = getTeacher();
-        Long teacherId = teacher.getTeacherId();
         Group group = getGroup();
+        Long teacherId = teacher.getTeacherId();
         GroupDto expectedGroupDto = GroupMapper.transformToDto(group);
 
-        Mockito.doReturn(Optional.of(teacher))
-                .when(teacherRepositoryMock).findByIdWithGroups(teacherId);
+        Mockito.doReturn(Optional.of(teacher)).when(teacherRepositoryMock).findByIdWithGroups(teacherId);
         Mockito.doReturn(teacher).when(teacherRepositoryMock).save(teacher);
 
         //when
@@ -74,23 +73,21 @@ class TeacherServiceTest {
     @Test
     void whenDeleteGroupFromTeacher_thenReturnTeacherWithoutDeletedGroup() {
         //prepare
-        Teacher teacherWithGroups = getTeacher();
-        Long teacherId = teacherWithGroups.getTeacherId();
-        Teacher teacherWithoutGroups = getTeacher();
+        Teacher teacher = getTeacher();
         Group group = getGroup();
+        Long teacherId = teacher.getTeacherId();
         Long groupId = group.getGroupId();
-        teacherWithGroups.getGroups().add(group);
+        teacher.getGroups().add(group);
 
-        Mockito.doReturn(Optional.of(teacherWithGroups))
-                .when(teacherRepositoryMock).findByIdWithGroups(teacherId);
-        Mockito.doReturn(teacherWithoutGroups).when(teacherRepositoryMock).save(teacherWithGroups);
+        Mockito.doReturn(Optional.of(teacher)).when(teacherRepositoryMock).findByIdWithGroups(teacherId);
+        Mockito.doReturn(teacher).when(teacherRepositoryMock).save(teacher);
 
         //when
         TeacherGroupsDto teacherGroupsDto = teacherService.deleteGroupFromTeacher(teacherId, groupId);
 
         //then
         assertEquals(0, teacherGroupsDto.getGroups().size());
-        Mockito.verify(teacherRepositoryMock).save(teacherWithGroups);
+        Mockito.verify(teacherRepositoryMock).save(teacher);
     }
 
     @Test
